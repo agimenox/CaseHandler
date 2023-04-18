@@ -1,0 +1,77 @@
+{% extends "index.html" %}
+{%load static%}
+{% block content %}
+<div id="layoutSidenav_content">
+<main>
+
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Case Handler</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Tables</li>
+        </ol>
+        <hr>
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <div>
+                <a class="btn btn-primary" href="{% url 'show_incident' %}">BACK</a> 
+                </div>
+          </div>
+          <hr>
+        <br>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Cases<br>
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Caller</th>
+                            <th>State</th>
+                            <th>Created</th>
+                            <th>Assigned to</th>
+                            <th>Priority</th>
+                            <th>Updated</th>
+                            <th>Options</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Caller</th>
+                            <th>State</th>
+                            <th>Created</th>
+                            <th>Assigned to</th>
+                            <th>Priority</th>
+                            <th>Updated</th>
+                            <th>Options</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for case in cases %}
+                        <tr>
+                            <td>{{ case.incident_number }}</td>
+                            <td>{{ case.case_creator }}</td>
+                            <td>{{ case.incident_state }}</td>
+                            <td>{{ case.registration_date }}</td>
+                            <td>{{ case.review_operator }}</td>
+                            <td>{{ case.case_priority }}</td>
+                            <td>{{ case.case_update }}</td>
+                            <td> <a href="{% url 'incident_details' case.incident_number %}"><i class="fas fa-scroll" title="See Case"></i></a> <a href="{% url 'update_incident' case.incident_number %}"><i class="fas fa-screwdriver" title="Update"></i></a>            
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+
+
+{% endblock content %}

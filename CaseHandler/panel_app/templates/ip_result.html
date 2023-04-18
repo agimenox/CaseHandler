@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<div id="layoutSidenav_content">
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i>
+
+    IP REPUTATION
+    <hr>
+    <!--Data From Api-->
+    <strong>Responsable de Registro Regional: </strong>
+    {{ regional_register }}
+    <br>
+    <strong>Pais de Origen: </strong>
+    {{ country }}
+    <br>
+    <strong>Clasificacion por Bkav: </strong>
+    {{ bkav_clasif }}
+    <br>
+    <strong>Clasificacion por CMC Threat Intelligence: </strong>
+    {{ cmc_clasif }}
+    <br>
+    <strong>Clasificacion por Snort: </strong>
+    {{ snort_clasif }}
+    <br>
+    <strong>Clasificacion por Fortinet: </strong>
+    {{ fortinet_clasif }}
+    <br>
+    <strong>Clasificacion por Google: </strong>
+    {{ google_clasfic }}
+    <br>
+    <strong>Datos Certificado Https: </strong>
+    {% for key in cert_https %}
+    {{ key }}
+    {% endfor %}
+    <br>
+    <strong>Nombres Registrados </strong>
+    {% for key in alter_names %}
+    <li>{{ key }}</li><br>
+    {% endfor %}
+    <br>
+    <strong>Escore Final: </strong>
+    {{ final_reputation }}
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+    {% endblock content %}

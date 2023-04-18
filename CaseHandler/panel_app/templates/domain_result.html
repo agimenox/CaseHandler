@@ -1,0 +1,22 @@
+<h1>Data from the API</h1>
+    <!--Data From Api-->
+    <strong>Categoria por ForcePoint: </strong>
+    {{ category }}
+    <strong>Tiene contenido Adulto: </strong>
+    {{ adult_content}}
+    <strong>Puntaje de Seguridad: </strong>
+    {{ safety_score }}
+    <strong>Veredicto: </strong>
+    {{ verdict }}
+
+    <br><br>
+    <strong>SubDominios Registrados </strong>
+    {% for key in subdomains %}
+    <li>{{ key }}</li><br>
+    {% endfor %}
+    <br><br>
+    <strong>Resol. DNS </strong>
+    <br><br>
+    {% for key in resolutions %}
+      <li>{{ key }}</li><br>
+    {% endfor %}

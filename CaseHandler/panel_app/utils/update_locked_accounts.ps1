@@ -1,0 +1,1 @@
+Search-ADAccount -LockedOut -UsersOnly | Select-Object Name, SamAccountName | Export-Csv -Path "EXPORT ROUTE" -NoTypeInformation

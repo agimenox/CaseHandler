@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div id="layoutSidenav_content">
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-glasses"></i>
+                        <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Update" />
+                        </form>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<br>
+<a href="{% url 'show_incident' %}">Back</a>
+
+{% endblock content %}

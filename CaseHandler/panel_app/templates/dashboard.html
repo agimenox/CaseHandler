@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+<div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Dashboard</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+                <div class="row">
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card bg-primary text-white mb-4">
+                            <div class="card-body">{{ firewall.assigned_operator }}<br>Starts: {{ firewall.initial_date }} Ends: {{ firewall.end_date }}</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#">Firewalls</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card bg-primary text-white mb-4">
+                            <div class="card-body">{{ cert.assigned_operator }}<br>Starts: {{ cert.initial_date }} Ends: {{ cert.end_date }}</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#">Certificates</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card bg-primary text-white mb-4">
+                            <div class="card-body">{{ gire.assigned_operator }}<br>Starts: {{ gire.initial_date }} Ends: {{ gire.end_date }}</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#">Gire Mails</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-xl-4 col-md-6">
+                    <img src="{% static 'dashboards/chart_cases_overview.png' %}" alt="Chart">
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <img src="{% static 'dashboards/chart_cases_months.png' %}" alt="Chart">
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <img src="{% static 'dashboards/chart_cases_severity.png' %}" alt="Chart">
+                </div>
+                </div>
+            </div>  
+        </main>
+
+
+
+        {% endblock content %}

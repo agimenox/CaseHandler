@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div id="layoutSidenav_content">
+    <main>
+        <div class="row">
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Update Case</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a href="{% url 'show_incident' %}">Back</a></li>
+                </ol>
+                <hr>
+            </div>
+        </div>
+    <div class="row">
+        <center>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-glasses"></i>
+                        <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Update" />
+                        </form>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+        </main>
+        </div>
+
+<br>
+
+
+{% endblock content %}

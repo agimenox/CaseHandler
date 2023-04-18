@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+<div id="layoutSidenav_content">
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i>
+                    Domain statics for: <strong>{{name_to_search}}</strong>
+                    <!-- contenido del cuadro -->
+                </div>
+                <div >
+                <!--Data From Api-->
+                <strong>Categoria por ForcePoint: </strong>
+                {{ category }}
+                <hr>
+                <strong>Tiene contenido Adulto: </strong>
+                {{ adult_content}}
+                <hr>
+                <strong>Puntaje de Seguridad: </strong>
+                {{ safety_score }}
+                <hr>
+                <strong>Veredicto: </strong>
+                {{ verdict }}
+                <hr>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i>
+                    Last Resolve DNS for: <strong>{{name_to_search}}</strong>
+                </div>
+                <strong>Resol. DNS </strong>
+                <br><br>
+                {% for key in resolutions %}
+                  <li>{{ key }}</li><br>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i>
+                    SubDomains for: <strong>{{name_to_search}}</strong>
+                </div>
+                    {% for key in subdomains %}
+                    <li>{{ key }}</li><br>
+                    {% endfor %}
+                </div>
+            </div>
+    </div>
+</div>
+
+{% endblock content %}
